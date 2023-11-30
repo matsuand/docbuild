@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SRCDIR=../../../../src/LFS/lfsja-git/src
+SRCDIR=$HOME/src/LFS/LFS/lfsbookja-src/src
 
 if [ -e ${SRCDIR}/$1 ]; then
   echo Already exists: $1
@@ -15,4 +15,4 @@ cat > ${SRCDIR}/$1 << "EOF"
 %
 EOF
 
-git add ${SRCDIR}/$1
+#git add ${SRCDIR}/$1
