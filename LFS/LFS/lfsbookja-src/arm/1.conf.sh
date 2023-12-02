@@ -11,17 +11,17 @@ txt:
 EOF
 fi
 
-pushd ../../../../src/LFS/lfs-git
+pushd $HOME/src/LFS/LFS/lfs-git >/dev/null
 git checkout arm
-popd
-pushd ../../../../src/LFS/lfsja-git
+popd >/dev/null
+pushd $HOME/src/LFS/LFS/lfsbookja-src >/dev/null
 git checkout arm
-popd
+popd >/dev/null
 
 mkdir -p builddir
 
 cd builddir
-../../../../../src/LFS/lfsja-git/configure \
+$HOME/src/LFS/LFS/lfsbookja-src/configure \
         --prefix=/usr \
-        --with-bookdir=../../../../../src/LFS/lfs-git \
+        --with-bookdir=$HOME/src/LFS/LFS/lfs-git \
 	--enable-maintainer-mode
