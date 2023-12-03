@@ -2,7 +2,7 @@
 
 if [ ! -f Makefile ]; then
 cat > Makefile << "EOF"
-export REV=sysv
+export REV=systemd
 
 all:
 	cd builddir && make
@@ -14,7 +14,7 @@ fi
 mkdir -p builddir
 
 cd builddir
-../../../../../src/LFS/blfsja-git/configure \
-        --with-bookdir=../../../../../src/LFS/blfs-git \
+$HOME/src/LFS/BLFS/blfsbookja-src/configure \
+        --with-bookdir=$HOME/src/LFS/BLFS/blfs-git \
         --with-ipafontdir=/usr/share/fonts/IPA \
-	--with-rev=sysv
+	--with-rev=systemd
