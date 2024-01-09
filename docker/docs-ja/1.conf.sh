@@ -1,6 +1,12 @@
 #!/bin/sh
 
-$HOME/src/docker/docs-ja/configure \
-        --prefix=/usr \
-        --with-origdir=$HOME/src/docker/docs \
+pushd $HOME/src/docker/docs-ja
+
+mkdir -p build
+cd       build
+
+../configure \
+        --with-origdir=../docs.orig   \
 	--enable-maintainer-mode
+
+popd
