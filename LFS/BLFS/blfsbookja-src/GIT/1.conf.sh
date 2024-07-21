@@ -15,6 +15,6 @@ mkdir -p builddir
 
 cd builddir
 $HOME/src/LFS/BLFS/blfsbookja-src/configure \
-        --with-bookdir=$HOME/src/LFS/BLFS/blfs-git \
+        --with-bookdir=$HOME/src/LFS/BLFS/blfsbookja-src/blfs-git \
         --with-ipafontdir=/usr/share/fonts/IPA \
 	--with-rev=sysv

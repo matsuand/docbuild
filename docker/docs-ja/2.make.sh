@@ -21,5 +21,5 @@ sed -i -e "/baseURL/s@https://docs.docker.com@http://lfstranslation5/docker.docs
 #       src/hugo.yaml
 #fi
 
-cd src && hugo --environment development
+cd src && hugo #--environment development
 popd

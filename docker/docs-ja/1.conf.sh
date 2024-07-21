@@ -7,6 +7,7 @@ cd       build
 
 ../configure \
         --with-origdir=../docs.orig   \
+	--with-hosturl="http://lfstranslation5" \
 	--enable-maintainer-mode
 
 popd
