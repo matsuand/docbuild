@@ -10,4 +10,13 @@ grep --exclude='*.png' --exclude-dir={node_modules,public} -rP "]\(/(?!docker\.d
 
 popd >/dev/null
 
+echo >$OUTPUT
+echo Check between @y@z...
+
+pushd $TOPDIR/src >/dev/null
+
+pcre2grep -Mnr '@y\n@z' * > $THISDIR/$OUTPUT
+
+popd >/dev/null
+
 cat $OUTPUT
