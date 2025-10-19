@@ -33,5 +33,12 @@ echo ***MATSUAND***
 echo hugo binary should be $VER
 echo hugo binary is hugo-0.141.0-ex from ./2.make.sh
 echo ***MATSUAND***
-cd src && hugo-0.141.0-ex --gc --minify -b http://lfstranslation5/docker.docs-ja #--environment development
+cd src
+hugo-0.141.0-ex --gc --minify -b http://lfstranslation5/docker.docs-ja #--environment development
+
+if test ! -d public/pagefind; then
+  PAGEFINDCOMMAND=`grep "^command" netlify.toml | sed -e "s/.*npx \(.*\)\"/\1/"`
+  npx ${PAGEFINDCOMMAND}
+fi
+
 popd
