@@ -1,7 +1,8 @@
 #!/bin/sh
 
-NAME=lfsbookja-git
-DIRNAME=git-ja
+VER=git
+NAME=lfsbookja-$VER
+DIRNAME=$VER-ja
 
 SRCDIR=$PWD/builddir
 DSTDIR=$HOME/src/LFS/LFS/lfsbookja-doc

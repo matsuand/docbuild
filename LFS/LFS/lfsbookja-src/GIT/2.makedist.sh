@@ -1,5 +1,7 @@
 #!/bin/sh
 
+VER=git
+
 export REV=sysv
 
 pushd builddir
@@ -11,13 +13,13 @@ make pdf
 make txt
 
 rm -f lfsbookja-html.tar.bz2
-tar cf - git-ja | bzip2 > lfsbookja-git-html.tar.bz2
+tar cf - $VER-ja | bzip2 > lfsbookja-$VER-html.tar.bz2
 
-rm -f lfsbookja-git-nochunks.html.bz2
-bzip2 lfsbookja-git.html
-mv lfsbookja-git.html.bz2 lfsbookja-git-nochunks.html.bz2
+rm -f lfsbookja-$VER-nochunks.html.bz2
+bzip2 lfsbookja-$VER.html
+mv lfsbookja-$VER.html.bz2 lfsbookja-$VER-nochunks.html.bz2
 
-rm -f lfsbookja-git.txt.bz2
-bzip2 lfsbookja-git.txt
+rm -f lfsbookja-$VER.txt.bz2
+bzip2 lfsbookja-$VER.txt
 
 popd

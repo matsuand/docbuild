@@ -14,9 +14,9 @@ fi
 pushd $HOME/src/LFS/LFS/lfs-git >/dev/null
 git checkout trunk
 popd >/dev/null
-pushd $HOME/src/LFS/LFS/lfsbookja-src >/dev/null
-git checkout main
-popd >/dev/null
+#pushd $HOME/src/LFS/LFS/lfsbookja-src >/dev/null
+#git checkout main
+#popd >/dev/null
 
 mkdir -p builddir
 

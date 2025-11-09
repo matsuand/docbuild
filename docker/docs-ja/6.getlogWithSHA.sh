@@ -1,36 +1,27 @@
 #!/bin/sh
 
+SRCDIR=/home/matsuand/src/docker/docs-ja
 SHA=$1
 THISDIR=`pwd`
 
 if test -z $SHA; then
-  echo Get SHA from matsuand.github.io...
+  echo Get SHA from release branch...
 
-  wget -N https://matsuand.github.io/docker.docs-ja/index.html \
-	--output-document index.html.tmp >/dev/null 2>&1
+  pushd $SRCDIR >/dev/null
 
-  if [ "$?" != "0" ]; then
+  CURRBRANCH=`git branch | grep ^* | sed "s/\* //"`
 
-    echo Cannot access matsuand.github.io
-    exit 1
+  git switch release >/dev/null 2>&1 # エラー想定なし
 
-  fi
+  SHA=`cat .git/modules/docs.orig/HEAD`
 
-  # index.html から "暫定公開中" が記述されている行を抽出
-  LINE=`grep 暫定公開中 index.html.tmp`
+  git switch $CURRBRANCH >/dev/null 2>&1
 
-  # 上の行を ">" で改行した上で "対応" が記述されている行を抽出
-  # 抽出結果は "<SHA値> 対応, yyyy/mm/dd</a>" といった単純文字列となる
-  LINE1=`echo $LINE | sed -e "s/>/>\n/g" | grep 対応`
-
-  # SHA値を抽出する
-  SHA=`echo $LINE1 | sed -e "s/^\([0-9a-z]*\) 対応.*$/\1/"`
-
-  rm -f index.html.tmp
+  popd >/dev/null
 
 else
 
-  pushd /home/matsuand/src/docker/docs-ja/docs.orig >/dev/null
+  pushd $SRCDIR/docs.orig >/dev/null
 
   git log $SHA -n 1 --oneline >/dev/null 2>&1
   if [ "$?" != "0" ]; then
