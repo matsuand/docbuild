@@ -36,8 +36,8 @@ fi
 
 pushd /home/matsuand/src/docker/docs-ja/docs.orig >/dev/null
 
-git log -p $SHA..HEAD >$THISDIR/_5.1.log
-git log --name-status --oneline --no-commit-id $SHA..HEAD >$THISDIR/_5.2.log
+git log -p --reverse $SHA..HEAD >$THISDIR/_5.1.log
+git log --name-status --oneline --no-commit-id --reverse $SHA..HEAD >$THISDIR/_5.2.log
 
 popd >/dev/null
 

@@ -6,10 +6,7 @@ srcdir=$HOME/src/docker/docs-ja/docs.orig
 pushd $HOME/src/docker/docs-ja/build
 
 if test "x$SKIP" != "xskip"; then
-  make
-  if [ $? -ne 0 ]; then
-    exit 1
-  fi
+  make || exit 1
 fi
 
 sed -i -e "/baseURL/s@https://docs.docker.com@http://lfstranslation5/docker.docs-ja@g" \
