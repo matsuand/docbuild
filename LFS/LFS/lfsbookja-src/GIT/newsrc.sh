@@ -2,12 +2,14 @@
 
 SRCDIR=$HOME/src/LFS/LFS/lfsbookja-src/src
 
-if [ -e ${SRCDIR}/$1 ]; then
+pushd ${SRCDIR} >/dev/null
+
+if [ -e $1 ]; then
   echo Already exists: $1
   exit 1;
 fi
 
-cat > ${SRCDIR}/$1 << "EOF"
+cat > $1 << "EOF"
 %
 % This is part of LFSbookja package.
 %
@@ -15,4 +17,7 @@ cat > ${SRCDIR}/$1 << "EOF"
 %
 EOF
 
-git add ${SRCDIR}/$1
+git add $1
+
+popd >/dev/null
+
